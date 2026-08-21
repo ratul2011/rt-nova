@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RT-NOVA — Future Starts Here</title>
+<meta name="description" content="RT-NOVA — a futuristic digital identity built around creativity, technology and innovation.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:#03030a;color:#fff;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(circle at 15% 20%,rgba(0,255,255,.12),transparent 30%),radial-gradient(circle at 85% 75%,rgba(150,0,255,.13),transparent 32%)}
+#stars{position:fixed;inset:0;width:100%;height:100%;z-index:-1}
+nav{position:fixed;top:0;left:0;width:100%;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:18px 7%;background:rgba(3,3,10,.68);backdrop-filter:blur(15px);border-bottom:1px solid rgba(0,255,255,.1)}
+.logo{font-size:21px;font-weight:900;letter-spacing:3px;background:linear-gradient(90deg,#00ffff,#9d4edd);-webkit-background-clip:text;color:transparent}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:#aaa;text-decoration:none;font-size:14px;transition:.3s}
+.nav-links a:hover{color:#00ffff}
+.menu{display:none;font-size:25px;cursor:pointer}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:100px 20px 60px}
+.badge{padding:9px 17px;border:1px solid rgba(0,255,255,.3);border-radius:50px;color:#00ffff;font-size:11px;letter-spacing:2px;background:rgba(0,255,255,.04)}
+.hero h1{margin-top:25px;font-size:clamp(55px,13vw,135px);font-weight:1000;letter-spacing:9px;background:linear-gradient(90deg,#00ffff,#fff,#a855f7,#00ffff);background-size:300%;-webkit-background-clip:text;color:transparent;animation:gradient 6s linear infinite}
+@keyframes gradient{to{background-position:300%}}
+.hero h2{color:#aaa;font-size:clamp(15px,3vw,25px);letter-spacing:7px;margin-top:5px}
+.hero p{max-width:720px;color:#888;line-height:1.8;margin:25px auto 35px}
+.buttons{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.btn{display:inline-block;text-decoration:none;padding:13px 24px;border-radius:8px;font-weight:bold;font-size:14px;transition:.3s}
+.primary{background:#00ffff;color:#000}
+.primary:hover{transform:translateY(-4px);box-shadow:0 0 35px rgba(0,255,255,.45)}
+.secondary{border:1px solid #333;color:#fff;background:rgba(255,255,255,.03)}
+.secondary:hover{border-color:#00ffff;color:#00ffff}
+section{padding:105px 7%}
+.section-title{text-align:center;margin-bottom:52px}
+.section-title span{color:#00ffff;font-size:11px;letter-spacing:4px}
+.section-title h2{font-size:40px;margin-top:12px}
+.section-title p{color:#777;max-width:620px;margin:15px auto;line-height:1.7}
+.about-grid{max-width:1100px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.card,.feature,.stat{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.08);border-radius:18px;backdrop-filter:blur(10px);transition:.4s}
+.card{padding:30px}
+.card:hover,.feature:hover,.stat:hover{transform:translateY(-7px);border-color:rgba(0,255,255,.35);box-shadow:0 15px 50px rgba(0,0,0,.35)}
+.card h3{color:#00ffff;margin-bottom:14px}
+.card p,.feature p{color:#888;line-height:1.8}
+.features{max-width:1150px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feature{padding:29px}
+.icon{font-size:30px;margin-bottom:18px}
+.feature h3{margin-bottom:11px}
+.feature p{font-size:14px}
+.core{max-width:1000px;margin:auto;text-align:center;padding:45px;border:1px solid rgba(0,255,255,.15);border-radius:25px;background:radial-gradient(circle at center,rgba(0,255,255,.08),transparent 62%)}
+.core-logo{width:125px;height:125px;margin:0 auto 28px;border-radius:50%;border:1px solid #00ffff;display:flex;align-items:center;justify-content:center;color:#00ffff;font-weight:bold;box-shadow:0 0 30px rgba(0,255,255,.2),inset 0 0 30px rgba(0,255,255,.08);animation:spin 10s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.core p,.vision p{max-width:680px;margin:auto;color:#888;line-height:1.9}
+.stats{max-width:1000px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.stat{text-align:center;padding:28px 10px}
+.stat strong{display:block;font-size:35px;color:#00ffff}
+.stat span{color:#777;font-size:13px}
+.vision{text-align:center;max-width:850px;margin:auto}
+.vision h2{font-size:45px;margin:22px 0}
+.cta{max-width:900px;margin:auto;text-align:center;padding:65px 30px;border-radius:25px;border:1px solid rgba(0,255,255,.15);background:radial-gradient(circle at center,rgba(0,255,255,.09),transparent 65%)}
+.cta h2{font-size:40px;margin-bottom:15px}
+.cta p{color:#777;margin-bottom:28px}
+footer{padding:40px 7%;text-align:center;border-top:1px solid rgba(255,255,255,.07);color:#555;font-size:13px}
+footer strong{color:#00ffff}
+.reveal{opacity:0;transform:translateY(28px);transition:1s}
+.reveal.active{opacity:1;transform:translateY(0)}
+@media(max-width:800px){
+.nav-links{position:absolute;top:64px;left:0;width:100%;display:none;flex-direction:column;padding:24px;background:rgba(3,3,10,.96);text-align:center}
+.nav-links.show{display:flex}.menu{display:block}.about-grid{grid-template-columns:1fr}.features{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.hero h1{letter-spacing:5px}section{padding:80px 5%}
+}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+
+<nav>
+<div class="logo">RT-NOVA</div>
+<div class="menu" onclick="toggleMenu()">☰</div>
+<ul class="nav-links" id="navLinks">
+<li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#features">Features</a></li><li><a href="#core">NOVA Core</a></li><li><a href="#vision">Vision</a></li>
+</ul>
+</nav>
+
+<section class="hero" id="home">
+<div class="badge">DIGITAL IDENTITY • TECHNOLOGY • FUTURE</div>
+<h1>RT-NOVA</h1>
+<h2>FUTURE STARTS HERE</h2>
+<p>RT-NOVA is a futuristic digital identity focused on creativity, technology, experimentation and the endless possibilities of the digital world.</p>
+<div class="buttons"><a class="btn primary" href="#about">Explore NOVA</a><a class="btn secondary" href="#vision">Our Vision</a></div>
+</section>
+
+<section id="about">
+<div class="section-title reveal"><span>01 — ABOUT</span><h2>What is RT-NOVA?</h2><p>More than a name. A digital identity built for the future.</p></div>
+<div class="about-grid">
+<div class="card reveal"><h3>✦ The Identity</h3><p>RT-NOVA represents a personal technology identity designed around innovation, digital creativity and futuristic ideas.</p></div>
+<div class="card reveal"><h3>✦ The Meaning</h3><p>RT represents identity, while NOVA represents a sudden burst of brightness from a star — symbolizing a new beginning and a brighter future.</p></div>
+<div class="card reveal"><h3>✦ The Philosophy</h3><p>Learn. Build. Experiment. Improve. RT-NOVA is about turning ideas into digital experiences.</p></div>
+<div class="card reveal"><h3>✦ The Future</h3><p>From terminal projects to web experiences, RT-NOVA is designed to grow with every new idea and every new creation.</p></div>
+</div>
+</section>
+
+<section id="features">
+<div class="section-title reveal"><span>02 — CAPABILITIES</span><h2>Built Different</h2><p>A creative digital ecosystem with a futuristic mindset.</p></div>
+<div class="features">
+<div class="feature reveal"><div class="icon">⚡</div><h3>Innovation</h3><p>Exploring new concepts and turning simple ideas into interesting digital experiences.</p></div>
+<div class="feature reveal"><div class="icon">💻</div><h3>Technology</h3><p>A technology-focused identity inspired by coding, terminals and modern web development.</p></div>
+<div class="feature reveal"><div class="icon">🌌</div><h3>Futuristic</h3><p>A visual language inspired by space, stars, neon interfaces and future technology.</p></div>
+<div class="feature reveal"><div class="icon">🧠</div><h3>Learning</h3><p>Continuous learning, experimentation and improvement are at the center of the NOVA philosophy.</p></div>
+<div class="feature reveal"><div class="icon">🚀</div><h3>Projects</h3><p>Digital projects can evolve from small experiments into complete experiences.</p></div>
+<div class="feature reveal"><div class="icon">✨</div><h3>Creativity</h3><p>Technology becomes more interesting when technical ideas meet creativity and design.</p></div>
+</div>
+</section>
+
+<section id="core">
+<div class="section-title reveal"><span>03 — SYSTEM</span><h2>NOVA CORE</h2><p>The conceptual engine behind the RT-NOVA identity.</p></div>
+<div class="core reveal"><div class="core-logo">NOVA</div><h2>CREATE • BUILD • EVOLVE</h2><br><p>NOVA CORE represents the mindset behind RT-NOVA: create something, build it with technology, learn from it, and continuously evolve it into something better.</p></div>
+</section>
+
+<section>
+<div class="section-title reveal"><span>04 — NOVA METRICS</span><h2>The Mindset</h2></div>
+<div class="stats">
+<div class="stat reveal"><strong>∞</strong><span>Ideas</span></div>
+<div class="stat reveal"><strong>24/7</strong><span>Curiosity</span></div>
+<div class="stat reveal"><strong>01</strong><span>Identity</span></div>
+<div class="stat reveal"><strong>∞</strong><span>Possibilities</span></div>
+</div>
+</section>
+
+<section id="vision">
+<div class="vision reveal"><span class="badge">05 — VISION</span><h2>Future Starts Here.</h2><p>RT-NOVA is built with a simple idea: the future is not something we wait for. It is something we create. Every experiment, every line of code and every new idea can become the beginning of something bigger.</p></div>
+</section>
+
+<section>
+<div class="cta reveal"><h2>Enter the NOVA</h2><p>A new digital journey begins with a single idea.</p><a class="btn primary" href="#home">Back to Top ↑</a></div>
+</section>
+
+<footer>© 2026 <strong>RT-NOVA</strong> — Future Starts Here.</footer>
+
+<script>
+function toggleMenu(){document.getElementById("navLinks").classList.toggle("show")}
+const reveals=document.querySelectorAll(".reveal");
+function revealElements(){reveals.forEach(e=>{if(e.getBoundingClientRect().top<innerHeight-80)e.classList.add("active")})}
+addEventListener("scroll",revealElements);revealElements();
+
+const canvas=document.getElementById("stars"),ctx=canvas.getContext("2d");
+let stars=[];
+function resize(){canvas.width=innerWidth;canvas.height=innerHeight}
+function makeStars(){
+stars=[];
+let n=Math.min(160,Math.floor(innerWidth*innerHeight/9000));
+for(let i=0;i<n;i++)stars.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.5+.2,s:Math.random()*.25+.05,o:Math.random()*.8+.2});
+}
+function animate(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+stars.forEach(a=>{a.y+=a.s;if(a.y>canvas.height){a.y=0;a.x=Math.random()*canvas.width}ctx.beginPath();ctx.arc(a.x,a.y,a.r,0,Math.PI*2);ctx.fillStyle=`rgba(255,255,255,${a.o})`;ctx.fill()});
+requestAnimationFrame(animate);
+}
+addEventListener("resize",()=>{resize();makeStars()});resize();makeStars();animate();
+</script>
+</body>
+</html>
